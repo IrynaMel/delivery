@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <Routes>
-        <Route path="/devoveryApp" element={<AppBar />}>
+        <Route path="/delivery" element={<AppBar />}>
           <Route path="home" element={<ShopView />} />
           <Route path="card" element={<CartView />} />
         </Route>
