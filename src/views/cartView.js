@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import get from '../API/Api';
 import Cart from '../components/Cart/Cart';

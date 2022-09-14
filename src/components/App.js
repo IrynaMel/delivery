@@ -1,6 +1,6 @@
 import ShopView from 'views/shopView';
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import NotFoundView from 'views/NotFoundView';
 import CartView from 'views/cartView';
 import AppBar from './AppBar/AppBar';
