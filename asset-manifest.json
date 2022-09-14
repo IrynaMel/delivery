@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/devoveryApp/static/css/main.79fe1a49.css",
+    "main.js": "/devoveryApp/static/js/main.27047705.js",
+    "index.html": "/devoveryApp/index.html",
+    "main.79fe1a49.css.map": "/devoveryApp/static/css/main.79fe1a49.css.map",
+    "main.27047705.js.map": "/devoveryApp/static/js/main.27047705.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79fe1a49.css",
+    "static/js/main.27047705.js"
+  ]
+}
