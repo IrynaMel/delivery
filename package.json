@@ -1,8 +1,8 @@
 {
-  "name": "devoveryapp",
+  "name": "delivery",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IrynaMel.github.io/devoveryApp/",
+  "homepage": "https://IrynaMel.github.io/delivery/",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -69,11 +69,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IrynaMel/devoveryApp.git"
+    "url": "git+https://github.com/IrynaMel/delivery.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IrynaMel/devoveryApp/issues"
+    "url": "https://github.com/IrynaMel/delivery/issues"
   }
 }
