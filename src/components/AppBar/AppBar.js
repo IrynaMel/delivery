@@ -8,8 +8,8 @@ const AppBar = () => {
       <header>
         <H>Delivery</H>
         <Div>
-          <HLink to="/devoveryApp/home">Home</HLink>
-          <HLink to="/devoveryApp/card">Shop Card</HLink>
+          <HLink to="/delivery/home">Home</HLink>
+          <HLink to="/delivery/card">Shop Card</HLink>
         </Div>
       </header>
       <Outlet />
