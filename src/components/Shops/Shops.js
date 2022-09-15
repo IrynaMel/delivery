@@ -4,8 +4,13 @@ const Shops = ({ onShop, shops }) => {
   return (
     <Ul>
       <Li onClick={() => onShop('')}>All shops</Li>
-      {shops?.map(item => {
-        return <Li onClick={() => onShop(item)}> {item}</Li>;
+      {shops?.map((item, i) => {
+        return (
+          <Li key={i} onClick={() => onShop(item)}>
+            {' '}
+            {item}
+          </Li>
+        );
       })}
     </Ul>
   );

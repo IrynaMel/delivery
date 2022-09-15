@@ -38,7 +38,7 @@ const CartView = () => {
       {products.length === 0 ? (
         <p style={{ textAlign: 'center' }}>
           Your cart is empty <br /> go for a shopping
-          <Link to="/devoveryApp/home"> Delivery page</Link>
+          <Link to="/delivery/home"> Delivery page</Link>
         </p>
       ) : (
         <Cart
