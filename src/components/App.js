@@ -11,7 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/delivery" element={<AppBar />}>
           <Route path="home" element={<ShopView />} />
-          <Route path="card" element={<CartView />} />
+          <Route path="cart" element={<CartView />} />
         </Route>
         <Route path="*" element={<NotFoundView />} />
       </Routes>

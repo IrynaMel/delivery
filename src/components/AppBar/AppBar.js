@@ -1,17 +1,30 @@
-import { Outlet } from 'react-router-dom';
-import { Div, HLink, H } from './AppBar.styled';
+import { Outlet, NavLink } from 'react-router-dom';
+import { Header, HLink, H, Img, CartImg } from './AppBar.styled';
 import { Container } from '@mui/material';
+import { useSelector } from 'react-redux';
+
+import boy from '../../images/boy.png';
+import cart from '../../images/cart.png';
 
 const AppBar = () => {
+  const products = useSelector(state => state.Cart.products);
+  const allCount = products
+    .map(item => item.qty)
+    .reduce((acc, i) => acc + i, 0);
   return (
     <Container maxWidth="xl">
-      <header>
+      <Header>
+        <NavLink to="/delivery/home">
+          <Img src={boy} alt="boy on bike" />
+        </NavLink>
         <H>Delivery</H>
-        <Div>
-          <HLink to="/delivery/home">Home</HLink>
-          <HLink to="/delivery/card">Shop Card</HLink>
-        </Div>
-      </header>
+        <HLink to="/delivery/cart">
+          Cart
+          <CartImg src={cart} alt="cart" width="25" />
+          {allCount !== 0 && <p>{allCount}</p>}
+        </HLink>
+        {/* </Div> */}
+      </Header>
       <Outlet />
     </Container>
   );

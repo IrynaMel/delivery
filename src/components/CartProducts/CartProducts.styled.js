@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Ul = styled.ul`
-  border: black solid 1px;
-  border-radius: 15px;
+  // border: black solid 1px;
+  // border-radius: 15px;
   display: flex;
   flex-direction: column;
   //   flex-wrap: wrap;

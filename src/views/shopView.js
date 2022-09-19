@@ -30,6 +30,11 @@ const ShopView = () => {
 
   const filteredProducts = products?.filter(item => item.shop === filter);
 
+  // const onShop = e => {
+  //   setFilter(e);
+  //   console.log(e);
+  // };
+
   return (
     <div style={{ display: 'flex' }}>
       <Shops onShop={setFilter} shops={shops} />

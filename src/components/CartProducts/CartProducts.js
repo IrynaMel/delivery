@@ -5,7 +5,6 @@ import { Ul, Li, Div, Qty, Button, Buttons } from './CartProducts.styled';
 const CartProducts = () => {
   const products = useSelector(state => state.Cart.products);
   const dispatch = useDispatch();
-  console.log(products);
 
   return (
     <Ul>

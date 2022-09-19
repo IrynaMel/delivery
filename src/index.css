@@ -2,6 +2,17 @@
 
 body {
   margin: 0, auto;
+  /* background: url('https://images.unsplash.com/photo-1647773203849-d7c5f5187cec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); 
+ background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-color: #3260C2 ; */
+  background: rgb(130, 106, 198);
+  background: linear-gradient(
+    0deg,
+    rgba(130, 106, 198, 1) 1%,
+    rgba(193, 174, 231, 1) 40%,
+    rgba(253, 249, 237, 1) 100%
+  );
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

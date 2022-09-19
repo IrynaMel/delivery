@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'redux/products/productsSlice';
-import { Ul, Li, Button, Img } from './Products.styled';
+import { Ul, Li, Button, Img, Head, P, Price } from './Products.styled';
+
+import cart from '../../images/cart.png';
 
 const Products = ({ products }) => {
   const dispatch = useDispatch();
@@ -10,16 +12,18 @@ const Products = ({ products }) => {
         {products.map(({ _id, name, price, shop, image }) => {
           return (
             <Li key={_id}>
-              <h3>{name}</h3>
-              <p>{price}</p>
-              <p> {shop}</p>
+              <Head>{name}</Head>
+
+              <P> {shop}</P>
               <Img src={image} alt={name} width="150px" height="50px" />
+              <Price>{price} UAH</Price>
               <Button
                 onClick={() =>
                   dispatch(addToCart({ _id, name, price, shop, image }))
                 }
               >
-                Add to Card
+                Add to Cart
+                <img src={cart} alt="cart" width="20" />
               </Button>
             </Li>
           );

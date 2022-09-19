@@ -30,7 +30,6 @@ const CartView = () => {
       products,
       total,
     };
-    console.log(order);
     get.makeOrder(order);
   };
   return (
