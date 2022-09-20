@@ -1,39 +1,18 @@
 import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import get from '../API/Api';
+
 import Cart from '../components/Cart/Cart';
 import { Link } from 'react-router-dom';
 
-const CartView = () => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-  });
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const CartView = () => {
   const products = useSelector(state => state.Cart.products);
 
-  const onChange = e => {
-    setState(prevState => {
-      return { ...prevState, [e.target.name]: e.target.value };
-    });
-  };
-
-  const result = products.map(item => Number(item.price) * Number(item.qty));
-  const total = result.reduce((sum, elm) => sum + elm, 0);
-  const onOrder = e => {
-    e.preventDefault();
-    const order = {
-      ...state,
-      products,
-      total,
-    };
-    get.makeOrder(order);
-  };
   return (
     <>
+      <ToastContainer />
       {products.length === 0 ? (
         <p style={{ textAlign: 'center' }}>
           Your cart is empty <br /> go for a shopping
@@ -41,10 +20,10 @@ const CartView = () => {
         </p>
       ) : (
         <Cart
-          onOrder={onOrder}
-          state={state}
-          onChange={onChange}
-          total={total}
+        // onOrder={onOrder}
+        // state={state}
+        // onChange={onChange}
+        // total={total}
         />
       )}
     </>

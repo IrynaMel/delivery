@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addToCart } from 'redux/products/productsSlice';
+import { addToCart } from 'redux/cartProducts/productsSlice';
 import { Ul, Li, Button, Img, Head, P, Price } from './Products.styled';
 
 import cart from '../../images/cart.png';

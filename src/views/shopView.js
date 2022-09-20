@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useGetProductsQuery } from '../redux/products/productsSlice';
 // import { useDispatch, useSelector } from 'react-redux';
 import Products from '../components/Products/Products';
 import Shops from '../components/Shops/Shops';
+import RiseLoader from 'react-spinners/RiseLoader';
 
-import get from '../API/Api';
+const override = {
+  display: 'block',
+  margin: '140px auto 600px auto',
+  borderColor: 'red',
+};
 
 const ShopView = () => {
-  const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    get
-      .FetchProducts()
-      .then(data => {
-        setProducts(data.data.data.result);
-      })
-      .catch(error => console.log(error.message));
-  }, []);
+  const { data, isLoading } = useGetProductsQuery();
+
+  const products = data?.data.result;
 
   const uArray = array => {
     var out = [];
@@ -26,23 +26,23 @@ const ShopView = () => {
   };
 
   const allShops = products?.map(item => item.shop);
-  const shops = uArray(allShops);
+  let shops = [];
+  if (products) {
+    shops = uArray(allShops);
+  }
 
   const filteredProducts = products?.filter(item => item.shop === filter);
-
-  // const onShop = e => {
-  //   setFilter(e);
-  //   console.log(e);
-  // };
 
   return (
     <div style={{ display: 'flex' }}>
       <Shops onShop={setFilter} shops={shops} />
-      {filter ? (
-        <Products products={filteredProducts} />
-      ) : (
-        <Products products={products} />
-      )}
+      {isLoading && <RiseLoader cssOverride={override} size={50} radius={20} />}
+      {data &&
+        (filter ? (
+          <Products products={filteredProducts} />
+        ) : (
+          <Products products={products} />
+        ))}
     </div>
   );
 };

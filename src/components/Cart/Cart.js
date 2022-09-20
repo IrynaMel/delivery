@@ -1,20 +1,68 @@
 import Form from '../Form/Form';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import CartProducts from 'components/CartProducts/CartProducts';
-import { Div, P, Button } from './Cart.stuled';
+import { Div, P, Button } from './Cart.styled';
+import { Formik } from 'formik';
 
-const Cart = ({ onOrder, state, onChange, total }) => {
+import get from '../../API/Api';
+
+import { schema, initialValues } from '../../helpers/validationSchemaForm';
+
+import { toast } from 'react-toastify';
+
+const Cart = () => {
+  const [checkbox, setCheckbox] = useState(false);
+  const handleChecked = () => {
+    setCheckbox(!checkbox);
+  };
+  const products = useSelector(state => state.Cart.products);
+
+  const result = products.map(item => Number(item.price) * Number(item.qty));
+  const total = result.reduce((sum, elm) => sum + elm, 0);
+  const onOrder = values => {
+    // e.preventDefault();
+    const order = {
+      ...values,
+      products,
+      total,
+    };
+
+    !checkbox
+      ? toast('Your order processing')
+      : toast('We will call you in a minute');
+    get.makeOrder(order);
+  };
+  // console.log(schema);
   return (
-    <div>
-      <form onSubmit={onOrder}>
-        <div style={{ display: 'flex' }}>
-          <Form state={state} onChange={onChange} />
-          <CartProducts />
-        </div>
-        <Div>
-          <P> Total: {total}</P>
-          <Button type="submit">Submit</Button>
-        </Div>
-      </form>
+    <div style={{ display: 'flex' }}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values, actions) => {
+          onOrder(values);
+          actions.resetForm();
+        }}
+        validateOnBlur
+        validationSchema={schema}
+      >
+        {({ values, errors, touched, handleChange, handleSubmit }) => (
+          <Form
+            values={values}
+            errors={errors}
+            touched={touched}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            total={total}
+            handleChecked={handleChecked}
+          />
+        )}
+      </Formik>
+
+      <CartProducts />
+
+      {/* <Div> */}
+
+      {/* </Div> */}
     </div>
   );
 };

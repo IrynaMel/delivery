@@ -8,7 +8,8 @@ export const Ul = styled.ul`
   flex-wrap: wrap;
   margin-left: 50px;
   margin-right: 30px;
-  max-height: 650px;
+  margin-bottom: auto;
+  max-height: 70vh;
   overflow-y: scroll;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.35);
   &::-webkit-scrollbar {
