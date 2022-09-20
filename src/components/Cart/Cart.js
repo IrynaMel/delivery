@@ -1,11 +1,10 @@
 import Form from '../Form/Form';
+import { useCreateOrderMutation } from 'redux/order/orderSlice';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CartProducts from 'components/CartProducts/CartProducts';
 // import { Div, P, Button } from './Cart.styled';
 import { Formik } from 'formik';
-
-import get from '../../API/Api';
 
 import { schema, initialValues } from '../../helpers/validationSchemaForm';
 
@@ -13,6 +12,8 @@ import { toast } from 'react-toastify';
 
 const Cart = () => {
   const [checkbox, setCheckbox] = useState(false);
+  const [CreateOrder] = useCreateOrderMutation();
+
   const handleChecked = () => {
     setCheckbox(!checkbox);
   };
@@ -31,7 +32,8 @@ const Cart = () => {
     !checkbox
       ? toast('Your order processing')
       : toast('We will call you in a minute');
-    get.makeOrder(order);
+    CreateOrder(order);
+    // get.makeOrder(order);
   };
   // console.log(schema);
   return (
