@@ -2,7 +2,7 @@ import Form from '../Form/Form';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CartProducts from 'components/CartProducts/CartProducts';
-import { Div, P, Button } from './Cart.styled';
+// import { Div, P, Button } from './Cart.styled';
 import { Formik } from 'formik';
 
 import get from '../../API/Api';
