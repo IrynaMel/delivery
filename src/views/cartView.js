@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
 import Cart from '../components/Cart/Cart';
+import { EmptyCart } from 'components/EmptyCart/EmptyCart';
 import { Link } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
@@ -14,11 +15,12 @@ const CartView = () => {
     <>
       <ToastContainer />
       {products.length === 0 ? (
-        <p style={{ textAlign: 'center' }}>
-          Your cart is empty <br /> go for a shopping
-          <Link to="/delivery/home"> Delivery page</Link>
-        </p>
+        <EmptyCart />
       ) : (
+        // <p style={{ textAlign: 'center' }}>
+        //   Your cart is empty <br /> go for a shopping
+        //   <Link to="/delivery/home"> Delivery page</Link>
+        // </p>
         <Cart
         // onOrder={onOrder}
         // state={state}
